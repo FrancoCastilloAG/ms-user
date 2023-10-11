@@ -12,10 +12,7 @@ export class AuthService {
         ){}
 
         async login(UserLoginDto: UserLoginDto) {
-            console.log("UserLoginDto:", UserLoginDto);
-          
             const User = await this.userService.findOne(UserLoginDto.email);
-            console.log("User:", User);
           
             if (!User) {
               console.log("Usuario no encontrado");
@@ -28,14 +25,11 @@ export class AuthService {
             }
           
             const payload = User.getInfoToken();
-            console.log("Payload:", payload);
-          
             const token = this.JwtService.sign(payload);
             console.log("Token:", token);
           
             return {
               token: token,
-              User: User
             };
           }
           
@@ -54,7 +48,6 @@ export class AuthService {
       
         return {
           token: token,
-          user: newUser
         };
       }
       

@@ -15,7 +15,7 @@ export const databaseConfig: DataSourceOptions = {
     password: process.env.TYPEORM_PASSWORD,
     database: process.env.TYPEORM_DATABASE,
     entities: [User],
-    synchronize: process.env.TYPEORM_SYNCHRONIZE === 'true',
+    synchronize: process.env.TYPEORM_SYNCHRONIZE === 'false',
     logging: process.env.TYPEORM_LOGGING === 'true',
     migrations: [__dirname + '/../migrations/*{.ts,.js}'],
 };
