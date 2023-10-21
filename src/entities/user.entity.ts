@@ -10,9 +10,6 @@ export class User {
     
     @Column({ type: 'text' })
     nombre:string;
-    
-    @Column({ type: 'text' })
-    rut:string;
 
     @Column({ type: 'text' })
     email:string;
