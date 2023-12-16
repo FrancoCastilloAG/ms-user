@@ -4,18 +4,20 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
     name:'users'
 })
 export class User {
-    
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id!: string;
     
     @Column({ type: 'text' })
-    nombre:string;
+    nombre!:string;
 
     @Column({ type: 'text' })
-    email:string;
+    email!:string;
     
     @Column({ type: 'text' })
-    password:string;
+    password!:string;
+
+    @Column({ type: 'text', nullable: true }) // Nullable because the verification code might not be set initially
+    verificationCode!: string;
 
     validatePassword(password:string):boolean{
         return this.password === password;
